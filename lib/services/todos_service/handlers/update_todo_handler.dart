@@ -12,9 +12,6 @@ class UpdateTodoHandler extends ServiceHandler<TodosService> {
 
   @override
   Future<Response> handle(Request request) async {
-    // Simulate slow response.
-    await Future.delayed(const Duration(seconds: 2));
-
     final todoId = request.params['todoId']!;
 
     final todoIndex = service.todos.indexWhere((e) => e.id == todoId);

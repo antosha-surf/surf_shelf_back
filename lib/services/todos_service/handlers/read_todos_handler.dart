@@ -9,9 +9,6 @@ class ReadTodosHandler extends ServiceHandler<TodosService> {
 
   @override
   Future<Response> handle(Request request) async {
-    // Simulate slow response.
-    await Future.delayed(const Duration(seconds: 2));
-
     final typeParam = request.url.queryParameters['type'];
 
     final type = TodoType.values.firstWhere(

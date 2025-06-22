@@ -8,9 +8,6 @@ class DeleteTodoHandler extends ServiceHandler<TodosService> {
 
   @override
   Future<Response> handle(Request request) async {
-    // Simulate slow response.
-    await Future.delayed(const Duration(seconds: 2));
-
     final todoId = request.params['todoId']!;
 
     final didDelete = service.removeTodoById(todoId);
