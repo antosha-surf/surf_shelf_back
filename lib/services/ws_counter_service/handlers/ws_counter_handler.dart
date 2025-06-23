@@ -7,6 +7,7 @@ class WSCounterHandler extends ServiceHandler<WSCounterService>
 
   @override
   Future<void> onNewConnection(WSConnection connection) async {
+    print('onNewConnection: Sending initial Message');
     connection.send('Hello from WSCounterHandler!');
     service.addConnection(connection);
   }
