@@ -8,10 +8,6 @@ class WSCounterHandler extends ServiceHandler<WSCounterService>
   @override
   Future<void> onNewConnection(WSConnection connection) async {
     connection.send('Hello from WSCounterHandler!');
-
-    // Give the client some time to receive the message.
-    // await Future.delayed(const Duration(milliseconds: 200));
-    //
-    // service.addConnection(connection);
+    service.addConnection(connection);
   }
 }
