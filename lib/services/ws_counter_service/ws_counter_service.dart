@@ -26,14 +26,8 @@ class WSCounterService extends RoutedService {
 
   void addConnection(WSConnection connection) {
     _activeConnections.add(connection);
-    print('Added connection. Active connections: ${_activeConnections.length}');
     connection.done.whenComplete(
-      () {
-        _activeConnections.remove(connection);
-        print(
-          'Removed connection. Active connections: ${_activeConnections.length}',
-        );
-      },
+      () => _activeConnections.remove(connection),
     );
   }
 
