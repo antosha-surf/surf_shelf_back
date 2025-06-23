@@ -1,0 +1,8 @@
+services:
+  shelf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shelf
+    user: "1001:1000"
+    restart: unless-stopped

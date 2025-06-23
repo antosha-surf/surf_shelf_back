@@ -10,12 +10,15 @@ export 'handlers/handlers.dart';
 class TodosService extends RoutedService {
   final _todos = <TodoItem>[];
 
+  /// READ.
   List<TodoItem> get todos => UnmodifiableListView(_todos);
 
+  /// CREATE.
   void addTodo(TodoItem todo) {
     _todos.add(todo);
   }
 
+  /// DELETE.
   bool removeTodoById(String id) {
     final todo = _todos.firstWhereOrNull((e) => e.id == id);
     if (todo != null) {
@@ -26,6 +29,7 @@ class TodosService extends RoutedService {
     return false;
   }
 
+  /// UPDATE.
   void updateTodo(String id, TodoItem todo) {
     assert(todo.id == id);
     final index = _todos.indexWhere((e) => e.id == id);

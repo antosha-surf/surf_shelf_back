@@ -9,22 +9,9 @@ class ReadTodosHandler extends ServiceHandler<TodosService> {
 
   @override
   Future<Response> handle(Request request) async {
-    final typeParam = request.url.queryParameters['type'];
-
-    final type = TodoType.values.firstWhere(
-      (e) => e.name == typeParam,
-      orElse: () => TodoType.all,
-    );
-
-    final todos = switch (type) {
-      TodoType.all => service.todos,
-      TodoType.active => service.todos.where((e) => !e.isCompleted).toList(),
-      TodoType.completed => service.todos.where((e) => e.isCompleted).toList(),
-    };
-
     return Response.ok(
       jsonEncode(
-        todos.map((e) => e.toDto()).toList(),
+        service.todos.map((e) => e.toDto()).toList(),
       ),
     );
   }
