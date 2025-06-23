@@ -7,7 +7,7 @@ COPY . /shelf_server
 
 WORKDIR /shelf_server
 
-RUN dart pub get && dart run build_runner build --delete-conflicting-outputs
+RUN dart pub get
 
 RUN mkdir exe
 
