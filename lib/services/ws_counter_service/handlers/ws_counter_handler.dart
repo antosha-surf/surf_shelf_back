@@ -13,8 +13,8 @@ class WSCounterHandler extends ServiceHandler<WSCounterService>
     connection.send('Hello from WSCounterHandler!');
 
     // Give the client some time to receive the message.
-    await Future.delayed(const Duration(milliseconds: 200));
-
-    service.addConnection(connection);
+    // await Future.delayed(const Duration(milliseconds: 200));
+    //
+    // service.addConnection(connection);
   }
 }
