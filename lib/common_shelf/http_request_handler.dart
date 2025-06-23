@@ -9,13 +9,8 @@ abstract class HttpRequestHandler {
 
   HttpRequestHandler({
     List<Middleware>? middlewares,
-    bool requireAuthentication = false,
   }) : _middlewares = middlewares {
     var pipeline = Pipeline();
-
-    // if (requireAuthentication) {
-    //   pipeline = pipeline.addMiddleware(authenticationMiddleware());
-    // }
 
     if (_middlewares != null) {
       for (final middleware in _middlewares) {

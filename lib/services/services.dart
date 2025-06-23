@@ -6,6 +6,8 @@ export 'todos_service/todos_service.dart';
 
 abstract class Service {
   FutureOr<void> init() {}
+
+  FutureOr<void> dispose() {}
 }
 
 abstract class RoutedService extends Service {
