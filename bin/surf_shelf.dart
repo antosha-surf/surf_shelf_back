@@ -23,7 +23,7 @@ void main(List<String> arguments) async {
   }
 
   final server = await shelf_io.serve(
-    Pipeline().addHandler(router.call),
+    Pipeline().addMiddleware(logRequests()).addHandler(router.call),
     '0.0.0.0',
     42069,
   );
